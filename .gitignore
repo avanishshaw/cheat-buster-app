@@ -1,0 +1,41 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Build
+/dist/
+/build/
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Misc
+*.bak
+*.tmp
+
+# Database
+*.sqlite
+*.db
+
+# Coverage
+coverage/
+
+# Others
+backend/node_modules/
+frontend/node_modules/
+backend/.env
+frontend/.env
