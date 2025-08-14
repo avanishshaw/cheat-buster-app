@@ -1,4 +1,3 @@
-// controllers/user.controller.js
 import { z } from 'zod';
 import User from '../models/user.model.js';
 
@@ -7,7 +6,6 @@ const searchQuerySchema = z.object({
 });
 
 export const searchUser = async (req, res) => {
-    // ... (The logic inside the function remains exactly the same) ...
     try {
         const validationResult = searchQuerySchema.safeParse(req.query);
         if (!validationResult.success) {

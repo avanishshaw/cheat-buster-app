@@ -1,4 +1,3 @@
-// models/user.model.js
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
@@ -12,5 +11,4 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Modern ES6 export
 export default User;
