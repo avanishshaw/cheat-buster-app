@@ -1,18 +1,16 @@
-// src/App.jsx
 import React, { useState } from 'react';
 import SearchForm from './components/SearchForm';
 import Results from './components/Results';
 import { searchUserByTerm } from './api/userAPI';
 
 function App() {
-  // State: The component's memory
   const [searchTerm, setSearchTerm] = useState('');
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSearch = async (event) => {
-    event.preventDefault(); // Stop the form from reloading the page
+    event.preventDefault(); 
     setLoading(true);
     setError('');
     setResult(null);
@@ -21,7 +19,6 @@ function App() {
       const data = await searchUserByTerm(searchTerm);
       setResult(data);
     } catch (err) {
-      // Set the error message from the API response
       setError(err.response?.data?.message || err.response?.data?.error || 'Could not connect to the server.');
     } finally {
       setLoading(false);
@@ -38,7 +35,6 @@ function App() {
           Find out if your partner is on other "dating" apps.
         </p>
 
-        {/* We pass the state and functions down to the components as "props" */}
         <SearchForm
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
