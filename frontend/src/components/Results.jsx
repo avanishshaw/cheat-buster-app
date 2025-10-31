@@ -2,15 +2,19 @@ import React from 'react';
 
 const Results = ({ result, loading, error }) => {
   if (loading) {
-    return <p className="mt-8 text-gray-500">Searching...</p>;
+    return (
+      <div className="mt-6">
+        <div className="h-24 rounded-xl bg-white/10 animate-pulse" />
+      </div>
+    );
   }
 
   if (error) {
     const isSafeMessage = error.includes('Phew!');
     return (
-      <p className={`mt-8 font-bold ${isSafeMessage ? 'text-green-600' : 'text-red-600'}`}>
-        {error}
-      </p>
+      <div className={`mt-6 rounded-xl p-4 ring-1 ${isSafeMessage ? 'bg-emerald-500/10 ring-emerald-500/30 text-emerald-200' : 'bg-rose-500/10 ring-rose-500/30 text-rose-200'}`}>
+        <p className="font-medium">{error}</p>
+      </div>
     );
   }
 
@@ -19,21 +23,25 @@ const Results = ({ result, loading, error }) => {
   }
 
   return (
-    <div className="mt-8 border-2 border-red-600 p-4 rounded-lg flex flex-col items-center animate-pulse-once">
-      <img
-        src={result.picture}
-        alt="User"
-        className="w-24 h-24 rounded-full object-cover mb-4"
-        referrerPolicy="no-referrer"
-      />
-      <h3 className="text-xl font-bold text-red-600 mb-2">BUSTED!</h3>
-      <p className="text-gray-700">
-        <strong className="text-gray-900">
-          {result.firstName} {result.lastName}
-        </strong>{' '}
-        ({result.age}) was found.
-      </p>
-      <p className="text-gray-700">They live in {result.city}.</p>
+    <div className="mt-6 rounded-2xl p-5 bg-white/80 text-slate-900 shadow-sm">
+      <div className="flex items-center gap-4">
+        <img
+          src={result.picture}
+          alt="User"
+          className="w-16 h-16 rounded-full object-cover ring-2 ring-rose-500/30"
+          referrerPolicy="no-referrer"
+        />
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center px-2 py-0.5 text-xs rounded-md bg-rose-100 text-rose-700 ring-1 ring-rose-200">Busted</span>
+            <h3 className="text-lg font-semibold">
+              {result.firstName} {result.lastName}
+              <span className="text-slate-500"> · {result.age}</span>
+            </h3>
+          </div>
+          <p className="text-slate-600">Appears on dating platforms. Location: {result.city}.</p>
+        </div>
+      </div>
     </div>
   );
 };
