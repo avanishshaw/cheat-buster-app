@@ -1,1 +1,4 @@
 @import "tailwindcss";
+
+/* Optional: smooth fonts for a crisper UI */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
